@@ -18,6 +18,6 @@ async function mongodb() {
   } catch (error) {
     console.log("MongoDB Error", error);
   }
-}
+};
 
 module.exports = mongodb;
