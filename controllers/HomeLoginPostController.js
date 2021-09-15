@@ -24,7 +24,7 @@ module.exports = async function HomeLoginPostController(req, res) {
       id: user._id,
     });
 
-    res.cookie("token", token).redirect("/");
+    res.cookie("token", token).redirect("/profile");
   } catch (error) {
     res.render("login", {
       error,

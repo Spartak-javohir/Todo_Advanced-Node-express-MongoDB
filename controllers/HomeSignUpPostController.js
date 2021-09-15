@@ -9,15 +9,17 @@ module.exports = async function HomeSignUpPostController(req, res) {
       email: data.email.toLowerCase(),
     });
 
-    if (user) throw new Error("Email already exists");
+    if (!user) throw new Error("Email already exists");
 
     user = await req.db.users.insertOne({
       ...data,
       password: await generateCrypt(data.password),
     });
-
+    
     res.redirect("/");
+    return
   } catch (error) {
+    console.log(error);
     res.render("registration", {
       error,
     });

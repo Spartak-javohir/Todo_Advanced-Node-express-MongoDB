@@ -16,6 +16,7 @@ async function mongodb() {
       users,
     };
   } catch (error) {
+    error
     console.log("MongoDB Error", error);
   }
 };
